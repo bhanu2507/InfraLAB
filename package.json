@@ -1,0 +1,33 @@
+{
+  "name": "infralab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-aria": "^1.6.2",
+    "angular-bootstrap": "^0.12.2",
+    "angular-material": "^1.1.3",
+    "angular-resource": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-sanitize": "^1.6.2",
+    "angular-utils-pagination": "^0.11.1",
+    "body-parser": "^1.16.1",
+    "browser-sync": "^2.18.8",
+    "child_process": "^1.0.2",
+    "express": "^4.14.1",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "install": "^0.8.7",
+    "mysql": "^2.13.0",
+    "npm": "^4.2.0",
+    "pkgcloud": "^1.4.0",
+    "request": "^2.79.0"
+  }
+}

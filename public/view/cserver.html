@@ -1,0 +1,63 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <!--md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button-->
+
+        <h2 flex md-truncate>Create Instance</h2>
+
+        <span flex></span>
+        <!--md-button class="md-icon-button test-tooltip" aria-label="Dashboard">
+            <md-tooltip md-direction="bottom">Dashboard</md-tooltip>
+            <md-icon md-svg-src="img/icons/ic_dashboard_white_24px.svg"
+                     style="width: 24px; height: 24px">
+            </md-icon>
+        </md-button-->
+        <md-button class="md-icon-button test-tooltip" aria-label="Details">
+            <md-tooltip md-direction="left">Details</md-tooltip>
+            <a href="#!/dashboard">
+                <md-icon md-svg-src="img/icons/ic_dashboard_white_24px.svg"
+                         style="width: 24px; height: 24px">
+                </md-icon></a>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content layout-padding="30px" layout-margin="30px">
+    <form name="projectForm">
+
+        <div layout="row">
+            <md-input-container flex="40">
+                <label>Select Image</label>
+                <md-select name="image" ng-model="image" required>
+                    <md-option value={{image.id}} ng-repeat="image in images"> {{ image.name }}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex="40">
+                <label>Select Flavor</label>
+                <md-select name="flavor" ng-model="flavor" required>
+                    <md-option ng-repeat="flavor in flavors" value={{flavor.id}}>{{ flavor.name }}, RAM : {{ flavor.ram }}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Name of the Instance</label>
+            <input md-maxlength="30" required md-no-asterisk name="name" ng-model="name">
+            <div ng-messages="name.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+            </div>
+        </md-input-container>
+
+        <div>
+            <md-button class="md-primary md-raised" ng-click="createserver(image, flavor, name)">Submit</md-button>
+        </div>
+        <div ng-show="updation" align="center">
+            <!--img src="../img/spinner.gif" height="50" width="50" /-->
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-show="updationmsg" align="center">
+            <span>{{ updatemsg }}</span>
+        </div>
+    </form>
+</md-content>

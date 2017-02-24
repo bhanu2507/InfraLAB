@@ -1,0 +1,81 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <!--md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button-->
+
+        <h2 flex md-truncate>Lab Instances</h2>
+
+        <span flex></span>
+        <!--md-button class="md-icon-button test-tooltip" aria-label="Dashboard">
+            <md-tooltip md-direction="bottom">Dashboard</md-tooltip>
+            <md-icon md-svg-src="img/icons/ic_dashboard_white_24px.svg"
+                     style="width: 24px; height: 24px">
+            </md-icon>
+        </md-button-->
+        <md-button class="md-icon-button test-tooltip" aria-label="Details">
+            <md-tooltip md-direction="left">Details</md-tooltip>
+            <a href="#!/cserver">
+                <md-icon md-svg-src="img/icons/ic_open_in_new_white_24px.svg"
+                         style="width: 24px; height: 24px">
+                </md-icon></a>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content layout-margin="10px" layout-padding="10px">
+    <div ng-show="loading">
+        <!--img src="../img/spinner.gif" height="50" width="50" /-->
+        <md-progress-circular md-mode="determinate"></md-progress-circular>
+    </div>
+    <div class="container" ng-show="!loading">
+        <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th></th>
+                <th><a href="" ng-click="order('name')">Name</a></th>
+                <th><a href="" ng-click="order('id')">ID</a></th>
+                <!--th><a href="" ng-click="order('AvailabilityZone')">Availability Zone</a></th-->
+                <th><a href="" ng-click="order('addresses.public[0]')">Public IP</a></th>
+                <th><a href="" ng-click="order('status')">Status</a></th>
+                <th><a href="" ng-click="order('flavorId')">Flavor</a></th>
+                <th><a href="" ng-click="order('updated')">Created</a></th>
+                <!--<th><a href="" ng-click="order('Uuid')">CPU Usage %</a></th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td><input type="text" ng-model="search.name" /></td>
+                <td><input type="text" ng-model="search.id" /></td>
+                <!--td><input type="text" ng-model="search.AvailabilityZone" /></td-->
+                <td><input type="text" ng-model="search.addresses.public[0]" /></td>
+                <td><input type="text" ng-model="search.status" /></td>
+                <td><input type="text" ng-model="search.flavorId" /></td>
+                <td><input type="text" ng-model="search.updated" /></td>
+                <!--<td><input type="text" ng-model="search._" /></td>-->
+            </tr>
+            <!--tr dir-paginate="ec2 in ec2s | orderBy:predicate:reverse | filter:search |itemsPerPage:50"-->
+            <tr dir-paginate="osc in filteredosc = (oscs | filter:search | orderBy:predicate:reverse) |itemsPerPage:15">
+                <td><input type="checkbox" ng-model="label.selected" ng-change="isLabelChecked()"></td>
+                <td><a href="http://110.110.110.5:6080/vnc_auto.html?token={{accesskey}}&title={{osc.name}}({{osc.id}})" target="_blank">{{osc.name}}</a></td>
+                <td>{{osc.id}}</td>
+                <!--td>{{osc.AvailabilityZone}}</td-->
+                <td>{{osc.addresses.public[0]}}</td>
+                <td>{{osc.status}}</td>
+                <td>{{osc.flavorId}}</td>
+                <td>{{osc.updated | date}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+
+</md-content>
