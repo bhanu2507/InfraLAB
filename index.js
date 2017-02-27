@@ -13,7 +13,7 @@ var jsonParser = bodyParser.json();
 app.use(jsonParser);
 
 ostack = require('./server/openstack');
-
+wmi = require('./server/wmi');
 
 app.get('/getcompulist', ostack.getcompulist);
 app.get('/getimagelist', ostack.getimages);
@@ -21,6 +21,8 @@ app.get('/getflavorlist', ostack.getflavors);
 app.post('/createserver', ostack.createserver);
 app.get('/getfloatingip', ostack.getfloatingip);
 app.get('/getaccesskey', ostack.generateaccesskey);
+
+app.get('/gethvcompulist', wmi.getcompulist);
 
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
 app.use('/bower_components', express.static(__dirname + '/bower_components/'));
