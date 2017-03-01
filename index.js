@@ -23,6 +23,7 @@ app.post('/createserver', ostack.createserver);
 app.get('/getfloatingip', ostack.getfloatingip);
 app.get('/getaccesskey', ostack.generateaccesskey);
 app.get('/gethypervvm', hyperv.gethypervvm);
+app.post('/createhypervvm', hyperv.createhypervvm);
 
 app.get('/gethvcompulist', wmi.getcompulist);
 

@@ -3,36 +3,34 @@
  */
 angular.module('infralab')
     .controller('cHyperVserverctrl', function($scope, $http) {
-        $scope.updation = false;
+
         $scope.updationmsg = false;
-        $http.get('\getimagelist')
-            .then(function(images){
-                //console.log(images);
-                $scope.images = images.data;
-            });
-        $http.get('\getflavorlist')
-            .then(function(flavors){
-                //console.log(flavors);
-                $scope.flavors = flavors.data;
-            });
-        $scope.createserver= function (img, fla, nm){
-            console.log(nm);
-            var data = $.param({
-                image: img,
-                flavor: fla,
-                name: nm
-            });
-            $scope.updation = true;
-            $http.post('/createserver?' + data)
+
+        $scope.images = [
+            {
+                "id" : "1",
+                "name" : "Citrix-Elearning-Ansible"
+            },
+            {
+                "id" : "2",
+                "name" : "Citrix-Elearning-Chef"
+            },
+            {
+                "id" : "3",
+                "name" : "Citrix-Elearning-Pupet"
+            }                        
+        ];
+
+            $scope.createserver = function() {
+        var data = {
+		                "instancename" : $scope.image
+                    };
+            $http.post('/createhypervvm', data)
                 .then(function (data) {
-                    //console.log(data);
-                    //$scope.results = false;
-                    $scope.updation = false;
+                    console.log(data);
                     $scope.updationmsg = true;
-                    $scope.updatemsg = "Successfully created the server. Server ID: " + data.data.id;
                 }, function (error) {
                     console.log('Error: ' + error);
                 });
-        };
-
+    }
     });

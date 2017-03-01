@@ -39,4 +39,21 @@ exports.gethypervvm = function(req, res) {
     //console.log(hyperv);
         res.send(hyperv);
     });
-};
+}
+
+    exports.createhypervvm = function(req, res) {
+        var options1 = { 
+        method: 'POST',
+        url: 'http://110.110.110.29:5000/createserver',
+        headers:
+            {   'cache-control': 'no-cache',
+                'content-type': 'application/json' },
+        body : { instance: { name: req.body.instancename } },
+        json: true
+        };
+        console.log(req.body.instancename);
+    request(options1, function (error, response, body) {
+        if (error) throw new Error(error);
+        res.send(body);
+    });
+}
