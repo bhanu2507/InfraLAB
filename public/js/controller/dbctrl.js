@@ -18,7 +18,7 @@ angular.module('infralab')
             .then(function (data) {
                // $scope.accesskey = data.data;
                 var str = data.data;
-                //console.log(data);
+               //console.log(data);
                 //console.log(str.substr(0,8) + "-" + str.substr(8,4) + "-" + str.substr(12,4) + "-" + str.substr(16,4) + "-" + str.substr(20,32));
                 //$scope.accesskey = str.substr(0,8) + "-" + str.substr(8,4) + "-" + str.substr(12,4) + "-" + str.substr(16,4) + "-" + str.substr(20,32)
                 $scope.accesskey = "15a1d720-1f4a-4bfa-aa73-85bf8600ca89";
@@ -26,7 +26,7 @@ angular.module('infralab')
 
         $http.get('/getcompulist')
             .then(function (data) {
-               // console.log(data.data);
+                console.log(data.data);
                 $scope.loading = false;
                 $scope.oscs = data.data;
                 $scope.totalItems = $scope.oscs.length;

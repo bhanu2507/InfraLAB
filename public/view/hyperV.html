@@ -37,38 +37,38 @@
             <thead>
             <tr>
                 <th></th>
-                <th><a href="" ng-click="order('name')">Name</a></th>
-                <th><a href="" ng-click="order('id')">ID</a></th>
+                <th><a href="" ng-click="order('Name')">Name</a></th>
+                <th><a href="" ng-click="order('CPUUsage')">CPUUsage</a></th>
                 <!--th><a href="" ng-click="order('AvailabilityZone')">Availability Zone</a></th-->
-                <th><a href="" ng-click="order('addresses.public[0]')">Public IP</a></th>
-                <th><a href="" ng-click="order('status')">Status</a></th>
-                <th><a href="" ng-click="order('flavorId')">Flavor</a></th>
-                <th><a href="" ng-click="order('updated')">Created</a></th>
+                <th><a href="" ng-click="order('State')">State</a></th>
+                <th><a href="" ng-click="order('Memory')">Memory</a></th>
+                <th><a href="" ng-click="order('Status')">Status</a></th>
+                <th><a href="" ng-click="order('Version')">Version</a></th>
                 <!--<th><a href="" ng-click="order('Uuid')">CPU Usage %</a></th>-->
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td></td>
-                <td><input type="text" ng-model="search.name" /></td>
-                <td><input type="text" ng-model="search.id" /></td>
+                <td><input type="text" ng-model="search.Name" /></td>
+                <td><input type="text" ng-model="search.CPUUsage" /></td>
                 <!--td><input type="text" ng-model="search.AvailabilityZone" /></td-->
-                <td><input type="text" ng-model="search.addresses.public[0]" /></td>
-                <td><input type="text" ng-model="search.status" /></td>
-                <td><input type="text" ng-model="search.flavorId" /></td>
-                <td><input type="text" ng-model="search.updated" /></td>
+                <td><input type="text" ng-model="search.State" /></td>
+                <td><input type="text" ng-model="search.Memory" /></td>
+                <td><input type="text" ng-model="search.Status" /></td>
+                <td><input type="text" ng-model="search.Version" /></td>
                 <!--<td><input type="text" ng-model="search._" /></td>-->
             </tr>
             <!--tr dir-paginate="ec2 in ec2s | orderBy:predicate:reverse | filter:search |itemsPerPage:50"-->
-            <tr dir-paginate="osc in filteredosc = (oscs | filter:search | orderBy:predicate:reverse) |itemsPerPage:15">
+            <tr dir-paginate="hypr in filteredosc = (hyprvs | filter:search | orderBy:predicate:reverse) |itemsPerPage:15">
                 <td><input type="checkbox" ng-model="label.selected" ng-change="isLabelChecked()"></td>
-                <td><a href="http://110.110.110.5:6080/vnc_auto.html?token={{accesskey}}&title={{osc.name}}({{osc.id}})" target="_blank">{{osc.name}}</a></td>
-                <td>{{osc.id}}</td>
+                <td>{{hypr.Name}}</a></td>
+                <td>{{hypr.CPUUsage}}</td>
                 <!--td>{{osc.AvailabilityZone}}</td-->
-                <td>{{osc.addresses.public[0]}}</td>
-                <td>{{osc.status}}</td>
-                <td>{{osc.flavorId}}</td>
-                <td>{{osc.updated | date}}</td>
+                <td>{{hypr.State}}</td>
+                <td>{{hypr.Memory}}</td>
+                <td>{{hypr.Status}}</td>
+                <td>{{hypr.Version}}</td>
             </tr>
             </tbody>
         </table>

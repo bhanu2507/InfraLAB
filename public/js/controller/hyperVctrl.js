@@ -7,6 +7,7 @@ angular.module('infralab')
 
         $http.get('/gethypervvm')
             .then(function (data) {
+                $scope.hyprvs = data.data;
                 console.log(data);
             });
 });

@@ -15,14 +15,15 @@ exports.getcompulist = function(req, res) {
         provider: 'openstack',
         useServiceCatalog: true,
         useInternal: false,
-        keystoneAuthVersion: 'v2',
-        authUrl: 'http://110.110.110.5:5000',
-        tenantId: '99e1e2d5093446f1b5ae11939272c2df',    //projectId from credentials
-        //   domainId: 'db873a6fd7e049fe9bc635f9e96541b4',
-        username: 'omkar',
-        password: 'omkar',
-        region: 'regionOne'   //dallas or london region
-        // basePath: 'v2.0/tokens'
+        keystoneAuthVersion: 'v3',
+        authUrl: 'http://110.110.112.5:5000',
+        tenantId: '87ca7d9c50b84b058c4d2b96bed92481',    //projectId from credentials
+      //  domainId: 'f68e350e-c548-4bd6-af75-27a2e86ed907',
+        domainName: 'Default',
+        username: 'bhanu',
+        password: 'bhanu',
+        region: 'regionOne',   //dallas or london region
+       // basePath: 'v2.0/tokens'
     });
     clientos.getServers(function (err, servers) {
         console.log(err);

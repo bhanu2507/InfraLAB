@@ -15,10 +15,10 @@ exports.getcompulist = function(req, res) {
     var wmi = new WmiClient({
         username: 'Administrator',
         password: 'atmecs@1234',
-        host: '110.110.110.110'
+        host: '110.110.110.31'
     });
 
-    wmi.query('SELECT * FROM Win32_OperatingSystem', function (err, result) {
+    wmi.query("Select Caption,Name From Win32_Process", function (err, result) {
         console.log(result);
 
         /*

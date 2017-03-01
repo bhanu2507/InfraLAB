@@ -7,12 +7,12 @@ angular.module('infralab')
         $scope.updationmsg = false;
         $http.get('\getimagelist')
             .then(function(images){
-                //console.log(images);
+                console.log(images);
                 $scope.images = images.data;
             });
         $http.get('\getflavorlist')
             .then(function(flavors){
-                //console.log(flavors);
+                console.log(flavors);
                 $scope.flavors = flavors.data;
             });
         $scope.createserver= function (img, fla, nm){
