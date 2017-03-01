@@ -13,6 +13,7 @@ var jsonParser = bodyParser.json();
 app.use(jsonParser);
 
 ostack = require('./server/openstack');
+hyperv = require('./server/hyperv');
 wmi = require('./server/wmi');
 
 app.get('/getcompulist', ostack.getcompulist);
@@ -21,6 +22,7 @@ app.get('/getflavorlist', ostack.getflavors);
 app.post('/createserver', ostack.createserver);
 app.get('/getfloatingip', ostack.getfloatingip);
 app.get('/getaccesskey', ostack.generateaccesskey);
+app.get('/gethypervvm', hyperv.gethypervvm);
 
 app.get('/gethvcompulist', wmi.getcompulist);
 
