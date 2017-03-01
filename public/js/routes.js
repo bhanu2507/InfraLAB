@@ -16,10 +16,18 @@ angular.module("infralab")
                 templateUrl : 'view/dashboard.html',
                 controller : 'dbctrl'
             })
+            .when('/hyperVDash', {
+                templateUrl : 'view/hyperV.html',
+                controller : 'hyperVctrl'                
+            })
             .when('/cserver', {
                 templateUrl : 'view/cserver.html',
                 controller : 'cserverctrl'
             })
+            .when('/cHyperVserver', {
+                templateUrl : 'view/cHyperVserver.html',
+                controller : 'cHyperVserverctrl'
+            })            
             .when('/', {
                 templateUrl : 'view/start.html',
                 controller : 'startctrl'

@@ -21,13 +21,16 @@
                 <span>InfraLAB</span>
             </h2>
             <span flex></span>
-            <md-button class="md-icon-button test-tooltip" aria-label="Compute">
-                <md-tooltip md-direction="bottom">Compute</md-tooltip>
-                <a href="#!/dashboard">
-                    <md-icon md-svg-src="img/icons/ic_computer_white_24px.svg"
-                             style="width: 24px; height: 24px">
-                    </md-icon></a>
-            </md-button>
+            <md-button class="md-raised" aria-label="Open Stack"
+                href="#!/dashboard">
+                <md-tooltip md-direction="bottom">Open Stack</md-tooltip>
+                    Open Stack
+                </md-button>
+            <md-button class="md-raised" aria-label="Win Hyper-V"
+                href="#!/hyperVDash">
+                <md-tooltip md-direction="bottom">Win Hyper-V</md-tooltip>
+                    Win Hyper-V
+            </md-button>            
         </div>
     </md-toolbar>
     <md-content layout="row" flex>
@@ -59,6 +62,8 @@
 
 <script src="js\app.js"></script>
 <script src="js\controller\dbctrl.js"></script>
+<script src="js\controller\hyperVctrl.js"></script>
+<script src="js\controller\cHyperVserverctrl.js"></script>
 <script src="js\controller\cserverctrl.js"></script>
 <script src="js\controller\startctrl.js"></script>
 <script src="js\routes.js"></script>
